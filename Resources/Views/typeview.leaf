@@ -28,7 +28,7 @@
             #for(type in typeList) {
             <tr>
                 <td>#(type.id)</td>
-                <td>#(type.nom)</td>
+                <td>#(type.name)</td>
             </tr>
             }
         </table>

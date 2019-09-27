@@ -12,6 +12,10 @@ public func routes(_ router: Router) throws {
         return "Hello, world!"
     }
     
+    router.get("welcome") { req in
+        return try req.view().render("welcome", ["title": "Airship"])
+    }
+    
     router.get("users") { req -> Future<View> in
       return User.query(on: req).all().flatMap { users in
         let data = ["userlist": users]
@@ -64,18 +68,18 @@ public func routes(_ router: Router) throws {
     let userController = UserController()
     router.get("getUsers", use: userController.index)
     router.post("postUser", use: userController.create)
-    //router.delete("deleteUser", User.parameter, use: userController.delete)
+//    router.delete("deleteUser", User.parameter, use: userController.delete)
     
     // Message controller
     let messageController = IAAController()
     router.get("getMessages", use: messageController.index)
     router.post("postMessage", use: messageController.create)
-    //router.delete("deleteUser", User.parameter, use: userController.delete)
+    router.delete("deleteMessage", use: messageController.delete)
     
     // Type controller
     let typeController = IAATypeController()
     router.get("getTypes", use: typeController.index)
     router.post("postType", use: typeController.create)
-    //router.delete("deleteUser", User.parameter, use: userController.delete)
+    router.delete("deleteType", use: typeController.delete)
     
 }

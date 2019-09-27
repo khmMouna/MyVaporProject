@@ -15,9 +15,9 @@ final class UserController {
     }
     
     /// Deletes a parameterized `Todo`.
-//    func delete(_ req: Request) throws -> Future<HTTPStatus> {
-//        return try req.content.decode(User.self).flatMap { user in
-//            return user.delete(on: req)
-//        }.transform(to: .ok)
-//    }
+    func delete(_ req: Request) throws -> Future<HTTPStatus> {
+        return try req.content.decode(User.self).flatMap { user in
+            return user.delete(on: req)
+        }.transform(to: .ok)
+    }
 }

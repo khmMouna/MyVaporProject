@@ -19,7 +19,7 @@
     </head>
     
     <body>
-        <h2>My messages list</h2>
+        <h2>My list of messages</h2>
         <table style="width:100%">
             <tr>
                 <th>Id</th>
